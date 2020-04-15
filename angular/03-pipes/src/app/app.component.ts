@@ -7,12 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  nombre    : string = "Capitán América";
+  nombre    : string   = "Capitán América";
+  nombre2   : string   = "eSTebAN RivERa";
   personajes: string[] = ['Ironman', 'Spiderman', 'Thor', 'Loki', 'Groot'];
   arreglo   : number[] = [1,2,3,4,5,6,7,8,9,10];
-  PI        : number = Math.PI;
-  porcentaje: number = 0.234;
-  salario   : number = 1234.5;
+  PI        : number   = Math.PI;
+  porcentaje: number   = 0.234;
+  salario   : number   = 1234.5;
+  fecha     : Date     = new Date();
+  idioma    : string   = 'es-AR';
+  activar   : boolean  = true;
+  videoUrl  : string   = 'https://www.youtube.com/embed/-CBKW-90VxQ';
 
   valorPromesa = new Promise<string>( (resolve) => {
 
