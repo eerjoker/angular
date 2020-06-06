@@ -4,13 +4,6 @@
   </div>
 </div>
 
-<div class="card-columns m-5">
+<app-loading class="m-5" *ngIf="loading"></app-loading>
 
-  <div *ngFor="let artist of artists" class="card">
-    <img [src]="artist.images | noimage" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{ artist.name }}</h5>
-    </div>
-  </div>
-
-</div>
+<app-cards *ngIf="!loading" [items]="artists"></app-cards>

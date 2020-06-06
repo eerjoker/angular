@@ -16,7 +16,7 @@ export class SpotifyService {
 
     // creo headers para enviar el access token (válido por una hora)
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQA2ZAuBGTsQOtmWWPHDKXzKtBzcarULOuvt_mHrLS_ekR7TuOdbcOUnnyFFADFKOUaN_seuGPilNANPRo0'
+      'Authorization': 'Bearer BQABPgRHaZAy6zonMVoDMLJmHEWlnfIf2KKuB9vj23zl5HdGRYAYMFBg55ZepTItEmBVxeLuTXr27Pkd-6E'
     });
 
     return this.http.get(url, { headers });
@@ -31,9 +31,22 @@ export class SpotifyService {
                // con ['albums'] indico que busque una propiedad llamada albums en data
   }
 
-  getArtist( term: string ) {
+  getArtists( term: string ) {
 
     return this.getQuery(`search?q=${ term }&type=artist&limit=15`)
                .pipe( map( data => data['artists'].items ));
+  }
+
+  getArtist( id: string ) {
+
+    return this.getQuery(`artists/${ id }`);
+              // no es necesario el pipe map porque la información ya viene como la necesito
+               // .pipe( map( data => data['artists'].items ));
+  }
+
+  getTopTracks( id: string ) {
+
+    return this.getQuery(`artists/${ id }/top-tracks?country=us`)
+               .pipe( map( data => data['tracks'] ));
   }
 }
